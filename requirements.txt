@@ -1,0 +1,10 @@
+fastapi[standard]
+torch 
+transformers 
+numpy 
+pillow
+google-genai
+torchvision
+dotenv
+requests
+uvicorn
