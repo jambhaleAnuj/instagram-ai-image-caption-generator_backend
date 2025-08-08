@@ -1,10 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 fastapi[standard]
-torch 
-transformers 
-numpy 
+torch==2.3.1+cpu
+torchvision==0.18.1+cpu
+transformers
+numpy
 pillow
 google-genai
-torchvision
 dotenv
 requests
 uvicorn

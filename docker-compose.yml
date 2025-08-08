@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: instagram-ai-caption-backend
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    ports:
+      - "8001:8001"
+    restart: unless-stopped
+    # Limit resources for free-tier VMs; adjust as needed
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1g
+        reservations:
+          cpus: '0.5'
+          memory: 512m
+    # Healthcheck to ensure service becomes ready after warm-up
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8001/readyz"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
