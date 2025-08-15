@@ -23,6 +23,7 @@ Your images are never sent to Google, OpenAI, or any third-party servers. The BL
 - Demo Output
 - Quick Start
 - API Reference
+- Sequence Diagram
 - Deployment (Docker, AWS EC2, Azure VM)
 - Configuration
 - Performance Notes
@@ -126,6 +127,24 @@ Health endpoints:
 - GET `/readyz` → `{ "ready": true }` once warm-up completes
 
 
+
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant Backend
+    participant Gemini
+
+    User->>Frontend: Upload Image
+    Frontend->>Backend: POST /upload_image/
+    Backend->>Gemini: Generate Captions
+    Gemini-->>Backend: Return Captions
+    Backend-->>Frontend: Return Captions
+    Frontend-->>User: Display Captions
+```
+
 ## Deployment (Docker, AWS EC2, Azure VM)
 
 - Build and push the Docker image, or use `docker compose` on the VM.
@@ -182,13 +201,11 @@ If this project helps you, consider opening issues, making PRs, and sharing feed
 
 ## License
 
-MIT License
+AGPL 3.0 License
 
 
 ## SEO Keywords & Topics
 
 Instagram caption generator, Instagram AI caption generator, image captioning, AI captions for Instagram, BLIP image captioning, Gemini captions, Gemma captions, FastAPI Instagram backend, Python Instagram tool, social media automation, privacy-first AI, on-device AI, CPU-only AI, open source Instagram captioner, Docker FastAPI backend, Hugging Face Transformers, content creator tools
 
-Suggested GitHub topics:
 
-`instagram` `caption-generator` `instagram-captions` `ai` `fastapi` `python` `transformers` `blip` `gemini` `gemma` `privacy` `docker` `image-captioning` `social-media` `open-source`

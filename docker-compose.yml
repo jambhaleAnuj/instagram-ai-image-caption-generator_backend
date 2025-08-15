@@ -21,7 +21,7 @@ services:
           memory: 512m
     # Healthcheck to ensure service becomes ready after warm-up
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:8001/readyz"]
+      test: ["CMD", "curl", "-fsS", "http://localhost:8001/readyz"]
       interval: 30s
       timeout: 5s
       retries: 5
