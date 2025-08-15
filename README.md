@@ -145,6 +145,9 @@ sequenceDiagram
     Frontend-->>User: Display Captions
 ```
 
+![Sequence Diagram](sequence.png)
+
+
 ## Deployment (Docker, AWS EC2, Azure VM)
 
 - Build and push the Docker image, or use `docker compose` on the VM.
