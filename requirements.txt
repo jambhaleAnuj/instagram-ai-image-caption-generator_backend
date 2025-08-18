@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+fastapi[standard]
+torch==2.6.0+cpu
+torchvision==0.21.0+cpu
+transformers
+safetensors>=0.4.5
+numpy
+pillow
+google-genai
+dotenv
+requests
+uvicorn
