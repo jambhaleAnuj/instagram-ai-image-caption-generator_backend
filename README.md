@@ -1,3 +1,13 @@
+---
+license: agpl-3.0
+title: Instagram AI Image Caption Generator (Backend)
+sdk: docker
+emoji: 👀
+colorFrom: red
+colorTo: purple
+pinned: true
+short_description: Generate creative, human-like,SEO-optimized Insta captions
+---
 # Instagram AI Image Caption Generator (Backend)
 
 Open-source, privacy-first Instagram caption generator using AI. FastAPI backend powered by BLIP (local image understanding) + Gemini/Gemma (creative text) to produce engaging, human-like, SEO-friendly Instagram captions.
@@ -210,5 +220,3 @@ AGPL 3.0 License
 ## SEO Keywords & Topics
 
 Instagram caption generator, Instagram AI caption generator, image captioning, AI captions for Instagram, BLIP image captioning, Gemini captions, Gemma captions, FastAPI Instagram backend, Python Instagram tool, social media automation, privacy-first AI, on-device AI, CPU-only AI, open source Instagram captioner, Docker FastAPI backend, Hugging Face Transformers, content creator tools
-
-
