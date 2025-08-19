@@ -18,7 +18,7 @@ except Exception:
 # Config toggles
 LOCAL_ONLY = os.getenv("HF_LOCAL_ONLY", "1") == "1"
 CPU_QUANT = os.getenv("CPU_QUANTIZE", "0") == "1"
-BLIP2_MODEL_ID = os.getenv("BLIP2_MODEL_ID", "Salesforce/blip2-flan-t5-base")
+BLIP2_MODEL_ID = os.getenv("BLIP2_MODEL_ID", "Salesforce/blip2-opt-2.7b")
 
 # Lazy-loaded globals
 PROCESSOR = None
