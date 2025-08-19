@@ -7,6 +7,7 @@ from blip_image_classification import image_classification, warm_blip, is_blip_w
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import uvicorn
+import os
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 
@@ -23,9 +24,11 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
-    # Warm BLIP on startup in a thread to avoid blocking
-    loop = asyncio.get_event_loop()
-    await loop.run_in_executor(None, warm_blip)
+    # Warm BLIP asynchronously without blocking server startup
+    try:
+        app.state.warmup_task = asyncio.create_task(asyncio.to_thread(warm_blip))
+    except Exception:
+        pass
 
 @app.get("/")
 async def root():
@@ -58,4 +61,5 @@ async def upload_image(file: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=3000)
+    port = int(os.environ.get("PORT", 3000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

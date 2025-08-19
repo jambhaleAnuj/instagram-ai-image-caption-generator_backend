@@ -18,10 +18,10 @@ except Exception:
 
 # Load the processor and model ONCE at startup (module import)
 PROCESSOR = BlipProcessor.from_pretrained(
-    'Salesforce/blip-image-captioning-base', use_fast=True
+    'Salesforce/blip-image-captioning-base', use_fast=True, local_files_only=True
 )
 MODEL = BlipForConditionalGeneration.from_pretrained(
-    'Salesforce/blip-image-captioning-base'
+    'Salesforce/blip-image-captioning-base', low_cpu_mem_usage=True, local_files_only=True
 )
 MODEL.eval()
 
@@ -42,7 +42,6 @@ def warm_blip():
                 max_new_tokens=5,
                 num_beams=1,
                 do_sample=False,
-                early_stopping=True,
             )
         _WARMED = True
     except Exception:
@@ -75,7 +74,6 @@ def image_classification(url):
             max_new_tokens=20,  # shorter generation for latency
             num_beams=1,        # greedy decoding for speed
             do_sample=False,
-            early_stopping=True
         )
 
     # Decode the output

@@ -7,6 +7,7 @@ safetensors>=0.4.5
 numpy
 pillow
 google-genai
-dotenv
+python-dotenv
 requests
 uvicorn
+huggingface_hub>=0.23.0
