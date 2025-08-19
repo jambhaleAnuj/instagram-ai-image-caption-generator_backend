@@ -40,8 +40,9 @@ RUN python - <<'PY'
 from huggingface_hub import snapshot_download
 import os
 cache_dir = os.environ.get('HUGGINGFACE_HUB_CACHE', '/app/.cache/huggingface')
-snapshot_download(repo_id='Salesforce/blip-image-captioning-base', cache_dir=cache_dir)
-print('Models cached in', cache_dir)
+repo_id = os.environ.get('BLIP2_MODEL_ID', 'Salesforce/blip2-flan-t5-base')
+snapshot_download(repo_id=repo_id, cache_dir=cache_dir)
+print('Models cached for', repo_id, 'in', cache_dir)
 PY
 
 # Expose port (Hugging Face Spaces provides PORT env)
